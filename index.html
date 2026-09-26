@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hitman Plumbing – 24/7 emergency plumber in Randburg. Blocked drains, burst pipes, geyser repairs.">
     <title>Hitman Plumbing | 24/7 Emergency Plumber in Randburg</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- External stylesheet (linked to ALL pages) -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <!-- ===== Header with sticky navigation ===== -->
     <header>
-        <nav>
+        <nav aria-label="Main navigation">
             <div class="logo">
-                <img src="images/logo.png" alt="Hitman Plumbing Logo">
+                <img src="images/logo.png" alt="Hitman Plumbing Logo" width="120" height="50">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="enquiry.html">Get a Quote</a></li>
@@ -24,11 +33,20 @@
         </nav>
     </header>
 
-    <!-- ===== Hero section ===== -->
+    <!-- ===== Hero with responsive picture ===== -->
     <section class="hero">
-        <h1>24/7 Emergency Plumber in Randburg</h1>
-        <p>Burst pipe? Blocked drain? We are available day and night, 7 days a week.</p>
-        <a href="enquiry.html" class="btn">Request a Free Quote</a>
+        <picture>
+            <source media="(max-width: 480px)" srcset="images/hero-mobile.jpg">
+            <source media="(max-width: 768px)" srcset="images/hero-tablet.jpg">
+            <img src="images/hero-desktop.jpg"
+                 alt="Hitman Plumbing technician working in Randburg"
+                 class="hero-bg">
+        </picture>
+        <div class="hero-content">
+            <h1>24/7 Emergency Plumber in Randburg</h1>
+            <p>Burst pipe? Blocked drain? We are available day and night, 7 days a week.</p>
+            <a href="enquiry.html" class="btn">Request a Free Quote</a>
+        </div>
     </section>
 
     <!-- ===== Main content ===== -->
@@ -39,7 +57,6 @@
                From blocked drains to geyser installations, we handle it all.</p>
         </section>
 
-        <!-- Quick service highlights -->
         <section class="highlights">
             <div class="highlight-card">
                 <h3>🕒 24/7 Service</h3>
@@ -56,10 +73,10 @@
         </section>
     </main>
 
-    <!-- ===== Footer ===== -->
     <footer>
         <p>&copy; 2026 Hitman Plumbing. All rights reserved.</p>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
-           

@@ -1,4 +1,4 @@
-// Simple form handler: confirm submission and reset the form
+// Simple form handler for demonstration
 document.addEventListener('DOMContentLoaded', function () {
 
     const forms = document.querySelectorAll('form');

@@ -1,229 +1,482 @@
-/* ===== RESET & BASE STYLES ===== */
-* {
+/* =========================================================
+   HITMAN PLUMBING — style.css
+   Author: [Your Name]
+   Part 2: CSS Styling + Responsive Design
+   ========================================================= */
+
+
+/* =========================================================
+   2.2  BASE STYLE + CSS RESET
+   ========================================================= */
+
+/* CSS Reset — consistent styling across all browsers */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Open Sans', Arial, sans-serif;
-    background-color: #F5F5F5;
-    color: #212121;
-    line-height: 1.6;
+/* Root design tokens */
+:root {
+    /* Colour scheme */
+    --primary:       #0D47A1;
+    --primary-dark:  #093170;
+    --accent:        #FF6F00;
+    --accent-dark:   #E65100;
+    --danger:        #D32F2F;
+    --danger-dark:   #B71C1C;
+    --bg-light:      #F5F5F5;
+    --text-dark:     #212121;
+    --text-muted:    #555555;
+    --border-light:  #cfd8dc;
+    --white:         #FFFFFF;
+
+    /* Typography scale */
+    --fs-small: 0.875rem;
+    --fs-body:  1rem;
+    --fs-h3:    1.25rem;
+    --fs-h2:    1.75rem;
+    --fs-h1:    2.25rem;
+    --fs-hero:  2.75rem;
+
+    /* Spacing scale */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+
+    /* Layout tokens */
+    --max-width:  1200px;
+    --radius:     8px;
+    --shadow:     0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-lg:  0 4px 16px rgba(0, 0, 0, 0.12);
+    --transition: 0.3s ease;
 }
 
-/* ===== HEADER & NAVIGATION ===== */
+/* Base elements */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================================================
+   2.3  TYPOGRAPHY STYLES
+   ========================================================= */
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--primary);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-xs);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p {
+    font-size: var(--fs-body);
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: var(--space-sm);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.page-header h1 {
+    font-size: var(--fs-h1);
+    margin-bottom: var(--space-sm);
+}
+
+.page-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   2.4  LAYOUT STRUCTURE — GRID + FLEXBOX
+   ========================================================= */
+
+/* Header — Flexbox */
 header {
-    background-color: #0D47A1;
-    padding: 1rem 2rem;
+    background-color: var(--primary);
+    padding: var(--space-sm) var(--space-lg);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: var(--shadow);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
     flex-wrap: wrap;
-}
-
-.logo img {
-    height: 50px;
+    gap: var(--space-sm);
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: var(--space-md);
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
+/* Main — CSS Grid */
+main {
+    max-width: var(--max-width);
+    margin: var(--space-lg) auto;
+    padding: 0 var(--space-lg);
+    display: grid;
+    gap: var(--space-xl);
 }
 
-.nav-links a:hover {
-    color: #FF6F00;
-}
-
-/* Emergency call button always visible */
-.call-btn {
-    background-color: #D32F2F;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.call-btn:hover {
-    background-color: #B71C1C;
-}
-
-/* ===== HERO SECTION ===== */
+/* Hero — Grid with overlay */
 .hero {
-    background: linear-gradient(rgba(13,71,161,0.7), rgba(13,71,161,0.7)),
-                url('../images/hero.jpg') center/cover;
-    color: white;
+    position: relative;
+    color: var(--white);
     text-align: center;
-    padding: 6rem 2rem;
+    padding: var(--space-xl) var(--space-lg);
+    min-height: 60vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(13, 71, 161, 0.75), rgba(13, 71, 161, 0.75));
+    z-index: -1;
+}
+
+.hero-content {
+    display: grid;
+    gap: var(--space-sm);
+    max-width: 800px;
 }
 
 .hero h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
+    color: var(--white);
+    font-size: var(--fs-hero);
 }
 
 .hero p {
+    color: rgba(255, 255, 255, 0.92);
     font-size: 1.25rem;
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-md);
 }
 
-/* ===== BUTTONS ===== */
-.btn {
-    display: inline-block;
-    background-color: #FF6F00;
-    color: white;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #E65100;
-}
-
-/* ===== MAIN CONTENT ===== */
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-}
-
-.page-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.page-header h1 {
-    font-family: 'Montserrat', sans-serif;
-    color: #0D47A1;
-    font-size: 2.5rem;
-}
-
-/* ===== SERVICE HIGHLIGHT CARDS ===== */
-.highlights {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.highlight-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    text-align: center;
-}
-
-/* ===== SERVICE CARDS ===== */
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
-}
-
-.service-card {
-    background: white;
-    padding: 1.5rem;
-    border-left: 5px solid #FF6F00;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.service-card h3 {
-    color: #0D47A1;
-    margin-bottom: 0.5rem;
-}
-
-/* ===== FORMS ===== */
-.enquiry-form, .contact-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: 0 auto;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-form input, form select, form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-}
-
-/* ===== CONTACT LOCATIONS ===== */
+/* Card grids */
+.service-grid,
+.highlights,
 .contact-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: var(--space-lg);
 }
 
+/* Forms grid */
+.enquiry-form,
+.contact-form {
+    background: var(--white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 650px;
+    margin: 0 auto;
+    display: grid;
+    gap: var(--space-sm);
+}
+
+
+/* =========================================================
+   2.5  VISUAL STYLES + PSEUDO-CLASSES
+   ========================================================= */
+
+/* Service cards */
+.service-card {
+    background: var(--white);
+    padding: var(--space-md);
+    border-left: 5px solid var(--accent);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-card h3 {
+    color: var(--primary);
+}
+
+/* Highlight cards */
+.highlight-card {
+    background: var(--white);
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform var(--transition);
+}
+
+.highlight-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: var(--fs-body);
+    font-family: inherit;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color var(--transition), transform 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+    outline: 3px solid rgba(255, 111, 0, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Emergency call button */
+.call-btn {
+    background-color: var(--danger);
+    color: var(--white);
+    padding: 0.65rem 1.2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color var(--transition);
+}
+
+.call-btn:hover,
+.call-btn:focus {
+    background-color: var(--danger-dark);
+    color: var(--white);
+    outline: 3px solid rgba(211, 47, 47, 0.3);
+}
+
+/* Navigation links */
+.nav-links a {
+    color: var(--white);
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Form fields */
+label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: var(--fs-body);
+    padding: 0.75rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    background-color: var(--white);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.15);
+}
+
+/* Location cards */
 .location {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    background: var(--white);
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
 .location h3 {
-    color: #0D47A1;
-    margin-bottom: 0.5rem;
+    color: var(--primary);
 }
 
-/* ===== FOOTER ===== */
+/* Footer */
 footer {
-    background-color: #0D47A1;
-    color: white;
+    background-color: var(--primary);
+    color: var(--white);
     text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
+    padding: var(--space-lg);
+    margin-top: var(--space-xl);
 }
 
-/* ===== RESPONSIVE ===== */
+footer p {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+
+/* =========================================================
+   3.1  BREAKPOINTS — RESPONSIVE DESIGN
+   ========================================================= */
+
+/* ===== TABLET: 768px and below ===== */
 @media (max-width: 768px) {
+
+    :root {
+        --fs-hero:  2rem;
+        --fs-h1:    1.75rem;
+        --fs-h2:    1.4rem;
+        --fs-h3:    1.1rem;
+        --space-xl: 2.5rem;
+    }
+
     nav {
         flex-direction: column;
-        gap: 1rem;
+        align-items: stretch;
+        text-align: center;
     }
 
     .nav-links {
         flex-direction: column;
-        gap: 0.75rem;
-        text-align: center;
+        gap: var(--space-xs);
+        padding: var(--space-sm) 0;
     }
 
-    .hero h1 {
-        font-size: 2rem;
+    .call-btn {
+        align-self: center;
+        margin-top: var(--space-xs);
+    }
+
+    .service-grid,
+    .highlights,
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 50vh;
+        padding: var(--space-lg) var(--space-sm);
+    }
+
+    main {
+        padding: 0 var(--space-sm);
+        gap: var(--space-lg);
+    }
+}
+
+/* ===== MOBILE: 480px and below ===== */
+@media (max-width: 480px) {
+
+    :root {
+        --fs-hero:  1.6rem;
+        --fs-h1:    1.4rem;
+        --fs-h2:    1.2rem;
+        --fs-body:  0.95rem;
+        --space-lg: 1.25rem;
+        --space-xl: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn,
+    .call-btn {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .enquiry-form,
+    .contact-form {
+        padding: var(--space-md);
     }
 }
