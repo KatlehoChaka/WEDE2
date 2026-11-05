@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plumbing services in Randburg – blocked drains, burst pipes, geyser installation, sewer maintenance.">
-    <title>Hitman Plumbing | Services</title>
+    <meta name="description" content="Professional plumbing services in Randburg – blocked drains, burst pipes, geyser repairs, sewer maintenance.">
+    <meta name="keywords" content="plumber Randburg, blocked drains, burst pipes, geyser repair">
+    <title>Plumbing Services in Randburg | Hitman Plumbing</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,11 +13,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header>
         <nav aria-label="Main navigation">
             <div class="logo">
-                <img src="images/logo.png" alt="Hitman Plumbing Logo" width="120" height="50">
+                <a href="index.html" class="logo-text">HITMAN PLUMBING</a>
             </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -34,37 +37,59 @@
             <p>Whatever the problem, we can fix it</p>
         </section>
 
-        <section class="service-grid">
+        <section class="search-box">
+            <label for="serviceSearch">Search services:</label>
+            <input type="text" id="serviceSearch" placeholder="e.g. blocked drain, geyser, toilet...">
+        </section>
+
+        <section class="service-grid" id="serviceGrid">
             <article class="service-card">
                 <h3>Blocked Drains</h3>
-                <p>Fast clearing of blocked drains using professional equipment.</p>
+                <p>Fast clearing of blocked drains using professional equipment. Call-out from R850. Available 24/7.</p>
             </article>
             <article class="service-card">
                 <h3>Burst Pipes</h3>
-                <p>Emergency repairs to stop leaks and prevent water damage.</p>
+                <p>Emergency repairs to stop leaks and prevent water damage. Call-out from R950. Available 24/7.</p>
             </article>
             <article class="service-card">
                 <h3>Geyser Installation &amp; Repair</h3>
-                <p>Supply, install, and repair geysers of all makes and sizes.</p>
+                <p>Supply, install, and repair geysers of all makes and sizes. From R1,500 (parts excluded).</p>
             </article>
             <article class="service-card">
                 <h3>Toilet &amp; Sink Installation</h3>
-                <p>Professional installation and repair of toilets and sinks.</p>
+                <p>Professional installation and repair of toilets and sinks. From R700 (parts excluded).</p>
             </article>
             <article class="service-card">
                 <h3>Sewer Line Maintenance</h3>
-                <p>Inspection, cleaning, and repair of sewer lines.</p>
+                <p>Inspection, cleaning, and repair of sewer lines. From R1,200 (inspection fee included).</p>
             </article>
             <article class="service-card">
                 <h3>General Plumbing Repairs</h3>
-                <p>All other residential and commercial plumbing repairs.</p>
+                <p>All other residential and commercial plumbing repairs. From R600 (call-out included).</p>
             </article>
         </section>
+
+        <section class="gallery-section">
+    <h2>Recent Work</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&auto=format" alt="Plumber repairing a pipe in Randburg" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=600&auto=format" alt="Blocked drain being cleared" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format" alt="Bathroom sink installation" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format" alt="Plumber working on water pipes" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format" alt="Plumbing tools and equipment" loading="lazy">
+    </div>
+</section>
     </main>
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-label="Image preview">
+        <span class="lightbox-close" aria-label="Close">&times;</span>
+        <img src="" alt="">
+    </div>
 
     <footer>
         <p>&copy; 2026 Hitman Plumbing. All rights reserved.</p>
     </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

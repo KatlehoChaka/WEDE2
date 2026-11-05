@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Request a free plumbing quote from Hitman Plumbing in Randburg.">
-    <title>Hitman Plumbing | Get a Quote</title>
+    <meta name="keywords" content="plumbing quote Randburg, free plumber quote">
+    <title>Get a Free Quote | Hitman Plumbing</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,11 +13,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header>
         <nav aria-label="Main navigation">
             <div class="logo">
-                <img src="images/logo.png" alt="Hitman Plumbing Logo" width="120" height="50">
+                <a href="index.html" class="logo-text">HITMAN PLUMBING</a>
             </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -35,18 +38,22 @@
         </section>
 
         <section class="enquiry-form">
-            <form action="#" method="post">
+            <form id="enquiryForm" novalidate>
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" required>
+                <span class="error-message"></span>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                <span class="error-message"></span>
 
                 <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="tel" id="phone" name="phone" placeholder="0821234567" required>
+                <span class="error-message"></span>
 
                 <label for="service">Service Needed:</label>
-                <select id="service" name="service">
+                <select id="service" name="service" required>
+                    <option value="">-- Choose a service --</option>
                     <option value="blocked-drain">Blocked Drain</option>
                     <option value="burst-pipe">Burst Pipe</option>
                     <option value="geyser">Geyser Installation/Repair</option>
@@ -54,18 +61,23 @@
                     <option value="sewer">Sewer Line Maintenance</option>
                     <option value="other">Other Plumbing Repair</option>
                 </select>
+                <span class="error-message"></span>
 
                 <label for="message">Describe the Problem:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
+                <span class="error-message"></span>
 
                 <button type="submit" class="btn">Submit Quote Request</button>
             </form>
+
+            <div id="enquiryResponse" class="form-response" style="display:none;"></div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Hitman Plumbing. All rights reserved.</p>
     </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

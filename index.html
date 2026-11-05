@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hitman Plumbing – 24/7 emergency plumber in Randburg. Blocked drains, burst pipes, geyser repairs.">
-    <title>Hitman Plumbing | 24/7 Emergency Plumber in Randburg</title>
+    <meta name="description" content="Hitman Plumbing – 24/7 emergency plumber in Randburg. Blocked drains, burst pipes, geyser repairs. Call 011 123 4567.">
+    <meta name="keywords" content="plumber Randburg, emergency plumber, 24 hour plumber, blocked drains Randburg, geyser repair">
+    <meta name="author" content="Your Name">
+    <title>24/7 Emergency Plumber in Randburg | Hitman Plumbing</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- External stylesheet (linked to ALL pages) -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ===== Header with sticky navigation ===== -->
     <header>
         <nav aria-label="Main navigation">
             <div class="logo">
-                <img src="images/logo.png" alt="Hitman Plumbing Logo" width="120" height="50">
+                <a href="index.html" class="logo-text">HITMAN PLUMBING</a>
             </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -33,15 +32,7 @@
         </nav>
     </header>
 
-    <!-- ===== Hero with responsive picture ===== -->
     <section class="hero">
-        <picture>
-            <source media="(max-width: 480px)" srcset="images/hero-mobile.jpg">
-            <source media="(max-width: 768px)" srcset="images/hero-tablet.jpg">
-            <img src="images/hero-desktop.jpg"
-                 alt="Hitman Plumbing technician working in Randburg"
-                 class="hero-bg">
-        </picture>
         <div class="hero-content">
             <h1>24/7 Emergency Plumber in Randburg</h1>
             <p>Burst pipe? Blocked drain? We are available day and night, 7 days a week.</p>
@@ -49,11 +40,10 @@
         </div>
     </section>
 
-    <!-- ===== Main content ===== -->
     <main>
         <section class="intro">
             <h2>Trusted Plumbers Since 2013</h2>
-            <p>Hitman Plumbing has served Randburg and surrounding suburbs for over 12 years. 
+            <p>Hitman Plumbing has served Randburg and surrounding suburbs for over 12 years.
                From blocked drains to geyser installations, we handle it all.</p>
         </section>
 
@@ -71,7 +61,23 @@
                 <p>Honest pricing, quality workmanship.</p>
             </div>
         </section>
+
+        <section class="gallery-section">
+    <h2>Recent Work</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&auto=format" alt="Plumber repairing a pipe in Randburg" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=600&auto=format" alt="Blocked drain being cleared" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format" alt="Bathroom sink installation" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format" alt="Plumber working on water pipes" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format" alt="Plumbing tools and equipment" loading="lazy">
+    </div>
+        </section>
     </main>
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-label="Image preview">
+        <span class="lightbox-close" aria-label="Close">&times;</span>
+        <img src="" alt="">
+    </div>
 
     <footer>
         <p>&copy; 2026 Hitman Plumbing. All rights reserved.</p>
